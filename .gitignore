@@ -1,0 +1,15 @@
+# Editor / tooling
+.claude/
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependencies / build (caso evolua para projeto com build)
+node_modules/
+dist/
+.env
+.env.local
