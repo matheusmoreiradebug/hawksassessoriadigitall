@@ -7,7 +7,7 @@
   /* ---------- CONFIG (edite aqui) ----------
      Número de WhatsApp no formato internacional, somente dígitos.
      Ex.: 55 (Brasil) + DDD + número. Troque pelo número real da Hawks. */
-  var WHATSAPP_NUMBER = '5511962766060';
+  var WHATSAPP_NUMBER = '5511947884127';
   var WHATSAPP_MSG = 'Olá! Vim pela landing page da Hawks e quero meu diagnóstico gratuito.';
 
   function waLink(extra) {
