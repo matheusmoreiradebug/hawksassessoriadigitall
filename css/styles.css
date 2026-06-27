@@ -256,8 +256,6 @@ h1, h2, h3, h4,
 .grow--after .grow__val { background: var(--grad-accent); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 .grow__arrow { color: var(--gold); font-size: 1.5rem; font-weight: 700; }
 .case__quote { font-size: 0.98rem; line-height: 1.65; color: rgba(255,255,255,0.86); border: none; }
-.case__photos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.photo-slot { aspect-ratio: 16/10; border: 1px dashed var(--border-2); border-radius: 12px; display: grid; place-items: center; font-size: 0.76rem; color: var(--muted-2); text-align: center; padding: 10px; background: repeating-linear-gradient(45deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02) 10px, transparent 10px, transparent 20px); }
 
 /* ============================================================ DIFERENCIAIS */
 .pillars { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
