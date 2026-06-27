@@ -51,6 +51,27 @@
   </script>
 </head>
 <body>
+  <!-- Sprite de ícones (Lucide-style) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+      <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></symbol>
+      <symbol id="i-filter" viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></symbol>
+      <symbol id="i-message" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="i-repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></symbol>
+      <symbol id="i-trending" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></symbol>
+      <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></symbol>
+      <symbol id="i-sliders" viewBox="0 0 24 24"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></symbol>
+      <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+      <symbol id="i-check-sm" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    </defs>
+  </svg>
+
   <!-- Background ambience -->
   <div class="bg-grid" aria-hidden="true"></div>
   <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
@@ -146,8 +167,8 @@
                 </div>
               </div>
               <div class="dash__chat">
-                <div class="chat__bubble chat__bubble--in">Vi o anúncio de planejados. Quero um orçamento para a cozinha 👀</div>
-                <div class="chat__bubble chat__bubble--out">Perfeito! Posso agendar uma visita ainda esta semana? 📐</div>
+                <div class="chat__bubble chat__bubble--in">Vi o anúncio de planejados. Quero um orçamento para a cozinha.</div>
+                <div class="chat__bubble chat__bubble--out">Perfeito! Posso agendar uma visita ainda esta semana?</div>
               </div>
               <div class="dash__leads">
                 <div class="lead-item"><span class="lead-avatar">MR</span><span class="lead-name">Marcos R. <em>· orçamento de cozinha</em></span><span class="lead-tag">novo lead</span></div>
@@ -156,7 +177,7 @@
             </div>
           </div>
           <div class="float-card float-card--1">
-            <span class="float-card__icon">✓</span>
+            <span class="float-card__icon"><svg class="ico" aria-hidden="true"><use href="#i-check-sm"/></svg></span>
             <div><strong>Projeto fechado</strong><small>R$ 38.500 · planejados</small></div>
           </div>
           <div class="float-card float-card--2">
@@ -190,7 +211,7 @@
           <div class="problem-card reveal"><span class="problem-card__x">✕</span><h3>Falta de previsibilidade</h3><p>Você não sabe quantos projetos vai fechar mês que vem — então não consegue planejar produção, equipe nem caixa.</p></div>
         </div>
         <div class="impact reveal">
-          <div class="impact__icon">⚠</div>
+          <div class="impact__icon"><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg></div>
           <div>
             <h3>Cada mês sem previsibilidade é dinheiro na mesa do concorrente</h3>
             <p>Enquanto sua empresa espera a próxima indicação, o cliente que ia mobiliar a casa <strong>fecha com quem apareceu primeiro</strong> no anúncio. O ticket de planejados é alto — <strong>cada projeto perdido são dezenas de milhares de reais</strong> que não voltam.</p>
@@ -209,21 +230,21 @@
         </div>
 
         <div class="flow">
-          <div class="flow__step reveal"><span class="flow__num">01</span><div class="flow__icon">🎯</div><h3>Meta Ads</h3><p>Anúncios no Instagram e Facebook segmentados para quem está mobiliando ou reformando — não curiosos.</p></div>
+          <div class="flow__step reveal"><span class="flow__num">01</span><div class="flow__icon"><svg class="ico" aria-hidden="true"><use href="#i-target"/></svg></div><h3>Meta Ads</h3><p>Anúncios no Instagram e Facebook segmentados para quem está mobiliando ou reformando — não curiosos.</p></div>
           <span class="flow__arrow reveal">→</span>
-          <div class="flow__step reveal"><span class="flow__num">02</span><div class="flow__icon">⚡</div><h3>Landing Page</h3><p>Página de alta conversão que mostra autoridade e transforma o clique em pedido de orçamento.</p></div>
+          <div class="flow__step reveal"><span class="flow__num">02</span><div class="flow__icon"><svg class="ico" aria-hidden="true"><use href="#i-layout"/></svg></div><h3>Landing Page</h3><p>Página de alta conversão que mostra autoridade e transforma o clique em pedido de orçamento.</p></div>
           <span class="flow__arrow reveal">→</span>
-          <div class="flow__step reveal"><span class="flow__num">03</span><div class="flow__icon">🧲</div><h3>Leads Qualificados</h3><p>Captação com perguntas que separam quem quer um projeto completo de quem só pesquisa preço.</p></div>
+          <div class="flow__step reveal"><span class="flow__num">03</span><div class="flow__icon"><svg class="ico" aria-hidden="true"><use href="#i-filter"/></svg></div><h3>Leads Qualificados</h3><p>Captação com perguntas que separam quem quer um projeto completo de quem só pesquisa preço.</p></div>
           <span class="flow__arrow reveal">→</span>
-          <div class="flow__step reveal"><span class="flow__num">04</span><div class="flow__icon">💬</div><h3>WhatsApp</h3><p>O lead aquecido cai direto na conversa, com contexto do que ele procura, pronto para atendimento.</p></div>
+          <div class="flow__step reveal"><span class="flow__num">04</span><div class="flow__icon"><svg class="ico" aria-hidden="true"><use href="#i-message"/></svg></div><h3>WhatsApp</h3><p>O lead aquecido cai direto na conversa, com contexto do que ele procura, pronto para atendimento.</p></div>
           <span class="flow__arrow reveal">→</span>
-          <div class="flow__step reveal"><span class="flow__num">05</span><div class="flow__icon">🤝</div><h3>Equipe Comercial</h3><p>Seu time recebe oportunidades reais para apresentar projeto, valor e fechar a venda.</p></div>
+          <div class="flow__step reveal"><span class="flow__num">05</span><div class="flow__icon"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg></div><h3>Equipe Comercial</h3><p>Seu time recebe oportunidades reais para apresentar projeto, valor e fechar a venda.</p></div>
           <span class="flow__arrow reveal">→</span>
-          <div class="flow__step reveal"><span class="flow__num">06</span><div class="flow__icon">🔁</div><h3>Follow-up</h3><p>Acompanhamento estruturado para reativar o orçamento parado — onde mora boa parte das vendas.</p></div>
+          <div class="flow__step reveal"><span class="flow__num">06</span><div class="flow__icon"><svg class="ico" aria-hidden="true"><use href="#i-repeat"/></svg></div><h3>Follow-up</h3><p>Acompanhamento estruturado para reativar o orçamento parado — onde mora boa parte das vendas.</p></div>
           <span class="flow__arrow reveal">→</span>
-          <div class="flow__step reveal"><span class="flow__num">07</span><div class="flow__icon">✅</div><h3>Fechamento</h3><p>Projeto aprovado, contrato assinado. E cada venda vira dado para melhorar a próxima campanha.</p></div>
+          <div class="flow__step reveal"><span class="flow__num">07</span><div class="flow__icon"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></div><h3>Fechamento</h3><p>Projeto aprovado, contrato assinado. E cada venda vira dado para melhorar a próxima campanha.</p></div>
           <span class="flow__arrow reveal">→</span>
-          <div class="flow__step flow__step--final reveal"><span class="flow__num">08</span><div class="flow__icon">📈</div><h3>Escala</h3><p>Com o sistema validado, aumentamos o investimento mantendo o retorno. Mais projetos, todo mês.</p></div>
+          <div class="flow__step flow__step--final reveal"><span class="flow__num">08</span><div class="flow__icon"><svg class="ico" aria-hidden="true"><use href="#i-trending"/></svg></div><h3>Escala</h3><p>Com o sistema validado, aumentamos o investimento mantendo o retorno. Mais projetos, todo mês.</p></div>
         </div>
 
         <div class="solucao__note reveal">
@@ -241,17 +262,17 @@
           <p class="section__lead">Não é um serviço solto — é uma estrutura completa de aquisição rodando pela sua empresa, semana após semana.</p>
         </div>
         <div class="deliver-grid">
-          <div class="deliver reveal"><span class="deliver__ico">🎯</span><h3>Gestão estratégica de Meta Ads</h3><p>Campanhas planejadas e gerenciadas para atrair quem quer mobiliar, com verba sob controle.</p></div>
-          <div class="deliver reveal"><span class="deliver__ico">⚡</span><h3>Landing pages exclusivas</h3><p>Páginas próprias da sua marca, construídas para converter o visitante em orçamento.</p></div>
-          <div class="deliver reveal"><span class="deliver__ico">🎨</span><h3>Criação dos criativos</h3><p>Imagens, vídeos e textos de anúncio que mostram seus projetos e chamam o cliente certo.</p></div>
-          <div class="deliver reveal"><span class="deliver__ico">💬</span><h3>Integração com WhatsApp</h3><p>O lead chega direto na conversa, no momento de maior interesse, sem fricção.</p></div>
-          <div class="deliver reveal"><span class="deliver__ico">🧲</span><h3>Qualificação dos leads</h3><p>Filtros que separam o comprador de projeto completo do curioso de prateleira.</p></div>
-          <div class="deliver reveal"><span class="deliver__ico">📊</span><h3>Dashboards</h3><p>Painel em tempo real com leads, custo e faturamento. Sua operação numa tela só.</p></div>
-          <div class="deliver reveal"><span class="deliver__ico">📑</span><h3>Relatórios</h3><p>Resultados traduzidos em linguagem de negócio: quanto entrou, quanto voltou.</p></div>
-          <div class="deliver reveal"><span class="deliver__ico">🔧</span><h3>Otimizações semanais</h3><p>Ajustes contínuos de campanha e página para baixar o custo e subir o volume.</p></div>
-          <div class="deliver reveal"><span class="deliver__ico">🤝</span><h3>Acompanhamento comercial</h3><p>Apoio ao seu time de vendas para que o lead vire projeto fechado, não orçamento perdido.</p></div>
-          <div class="deliver reveal"><span class="deliver__ico">📈</span><h3>Análise das métricas de vendas</h3><p>Olhamos a conversão do comercial para encontrar onde o dinheiro está escapando.</p></div>
-          <div class="deliver reveal"><span class="deliver__ico">🧭</span><h3>Suporte estratégico</h3><p>Um parceiro pensando o crescimento da sua empresa junto com você, não um fornecedor distante.</p></div>
+          <div class="deliver reveal"><span class="deliver__ico"><svg class="ico" aria-hidden="true"><use href="#i-target"/></svg></span><h3>Gestão estratégica de Meta Ads</h3><p>Campanhas planejadas e gerenciadas para atrair quem quer mobiliar, com verba sob controle.</p></div>
+          <div class="deliver reveal"><span class="deliver__ico"><svg class="ico" aria-hidden="true"><use href="#i-layout"/></svg></span><h3>Landing pages exclusivas</h3><p>Páginas próprias da sua marca, construídas para converter o visitante em orçamento.</p></div>
+          <div class="deliver reveal"><span class="deliver__ico"><svg class="ico" aria-hidden="true"><use href="#i-image"/></svg></span><h3>Criação dos criativos</h3><p>Imagens, vídeos e textos de anúncio que mostram seus projetos e chamam o cliente certo.</p></div>
+          <div class="deliver reveal"><span class="deliver__ico"><svg class="ico" aria-hidden="true"><use href="#i-message"/></svg></span><h3>Integração com WhatsApp</h3><p>O lead chega direto na conversa, no momento de maior interesse, sem fricção.</p></div>
+          <div class="deliver reveal"><span class="deliver__ico"><svg class="ico" aria-hidden="true"><use href="#i-filter"/></svg></span><h3>Qualificação dos leads</h3><p>Filtros que separam o comprador de projeto completo do curioso de prateleira.</p></div>
+          <div class="deliver reveal"><span class="deliver__ico"><svg class="ico" aria-hidden="true"><use href="#i-chart"/></svg></span><h3>Dashboards</h3><p>Painel em tempo real com leads, custo e faturamento. Sua operação numa tela só.</p></div>
+          <div class="deliver reveal"><span class="deliver__ico"><svg class="ico" aria-hidden="true"><use href="#i-file"/></svg></span><h3>Relatórios</h3><p>Resultados traduzidos em linguagem de negócio: quanto entrou, quanto voltou.</p></div>
+          <div class="deliver reveal"><span class="deliver__ico"><svg class="ico" aria-hidden="true"><use href="#i-sliders"/></svg></span><h3>Otimizações semanais</h3><p>Ajustes contínuos de campanha e página para baixar o custo e subir o volume.</p></div>
+          <div class="deliver reveal"><span class="deliver__ico"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg></span><h3>Acompanhamento comercial</h3><p>Apoio ao seu time de vendas para que o lead vire projeto fechado, não orçamento perdido.</p></div>
+          <div class="deliver reveal"><span class="deliver__ico"><svg class="ico" aria-hidden="true"><use href="#i-trending"/></svg></span><h3>Análise das métricas de vendas</h3><p>Olhamos a conversão do comercial para encontrar onde o dinheiro está escapando.</p></div>
+          <div class="deliver reveal"><span class="deliver__ico"><svg class="ico" aria-hidden="true"><use href="#i-compass"/></svg></span><h3>Suporte estratégico</h3><p>Um parceiro pensando o crescimento da sua empresa junto com você, não um fornecedor distante.</p></div>
         </div>
       </div>
     </section>
