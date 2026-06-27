@@ -1,14 +1,13 @@
 /* ============================================================
-   HAWKS ASSESSORIA DIGITAL — interactions
+   HAWKS ASSESSORIA DIGITAL — interactions (setor moveleiro)
    ============================================================ */
 (function () {
   'use strict';
 
   /* ---------- CONFIG (edite aqui) ----------
-     Número de WhatsApp no formato internacional, somente dígitos.
-     Ex.: 55 (Brasil) + DDD + número. Troque pelo número real da Hawks. */
+     WhatsApp no formato internacional, só dígitos: 55 + DDD + número. */
   var WHATSAPP_NUMBER = '5511947884127';
-  var WHATSAPP_MSG = 'Olá! Vim pela landing page da Hawks e quero meu diagnóstico gratuito.';
+  var WHATSAPP_MSG = 'Olá! Vim pela página da Hawks e quero um diagnóstico gratuito para a minha empresa de móveis.';
 
   function waLink(extra) {
     var msg = extra ? WHATSAPP_MSG + ' ' + extra : WHATSAPP_MSG;
@@ -19,14 +18,18 @@
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ---------- WhatsApp links ---------- */
-  ['whatsFloat', 'formWhats', 'footerWhats'].forEach(function (id) {
+  /* ---------- Objetivo único: WhatsApp ----------
+     Todos os CTAs primários (botões dourados/azuis que são links), o botão
+     flutuante e o link do rodapé abrem o WhatsApp diretamente. */
+  var waTargets = [].slice.call(document.querySelectorAll('a.btn--gold'));
+  ['whatsFloat', 'footerWhats'].forEach(function (id) {
     var el = document.getElementById(id);
-    if (el) {
-      el.href = waLink();
-      el.target = '_blank';
-      el.rel = 'noopener';
-    }
+    if (el) waTargets.push(el);
+  });
+  waTargets.forEach(function (el) {
+    el.href = waLink();
+    el.target = '_blank';
+    el.rel = 'noopener';
   });
 
   /* ---------- Nav: scrolled state ---------- */
@@ -60,15 +63,10 @@
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          io.unobserve(entry.target);
-        }
+        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-
-    revealEls.forEach(function (el, i) {
-      // stagger siblings within the same grid for a nicer cascade
+    revealEls.forEach(function (el) {
       var parent = el.parentElement;
       if (parent) {
         var idx = Array.prototype.indexOf.call(parent.children, el);
@@ -122,21 +120,21 @@
     });
   }
 
-  /* ---------- Lead form ---------- */
+  /* ---------- Lead form → WhatsApp ---------- */
   var form = document.getElementById('leadForm');
   var status = document.getElementById('formStatus');
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var nome = form.nome, email = form.email, telefone = form.telefone;
+      var nome = form.nome, telefone = form.telefone;
       var valid = true;
-      [nome, email, telefone].forEach(function (f) {
-        var ok = f.value.trim() !== '' && (f.type !== 'email' || /\S+@\S+\.\S+/.test(f.value));
+      [nome, telefone].forEach(function (f) {
+        var ok = f.value.trim() !== '';
         f.classList.toggle('invalid', !ok);
         if (!ok) valid = false;
       });
       if (!valid) {
-        status.textContent = 'Por favor, preencha nome, e-mail e WhatsApp válidos.';
+        status.textContent = 'Por favor, preencha nome e WhatsApp.';
         status.className = 'lead-form__status err';
         return;
       }
@@ -144,16 +142,15 @@
       status.textContent = 'Tudo certo! Abrindo o WhatsApp para concluir seu diagnóstico…';
       status.className = 'lead-form__status ok';
 
-      // Encaminha o lead para o WhatsApp com os dados preenchidos.
       var resumo = 'Nome: ' + nome.value +
-        ' | E-mail: ' + email.value +
         ' | WhatsApp: ' + telefone.value +
         (form.empresa.value ? ' | Empresa: ' + form.empresa.value : '') +
+        (form.segmento.value ? ' | Segmento: ' + form.segmento.value : '') +
         (form.faturamento.value ? ' | Faturamento: ' + form.faturamento.value : '');
 
-      // Hook de tracking (Google/Meta Ads) — descomente quando configurar:
-      // if (window.gtag) gtag('event', 'generate_lead');
+      // Tracking Meta/Google (descomente ao configurar os pixels):
       // if (window.fbq) fbq('track', 'Lead');
+      // if (window.gtag) gtag('event', 'generate_lead');
 
       setTimeout(function () {
         window.open(waLink('Meus dados — ' + resumo), '_blank', 'noopener');
@@ -166,8 +163,8 @@
   document.querySelectorAll('[data-cta]').forEach(function (el) {
     el.addEventListener('click', function () {
       var label = el.getAttribute('data-cta');
-      if (window.gtag) window.gtag('event', 'cta_click', { cta_location: label });
       if (window.fbq) window.fbq('trackCustom', 'CTAClick', { location: label });
+      if (window.gtag) window.gtag('event', 'cta_click', { cta_location: label });
     });
   });
 })();
