@@ -21,7 +21,7 @@
   /* ---------- Objetivo único: WhatsApp ----------
      Todos os CTAs primários (botões dourados/azuis que são links), o botão
      flutuante e o link do rodapé abrem o WhatsApp diretamente. */
-  var waTargets = [].slice.call(document.querySelectorAll('a.btn--gold'));
+  var waTargets = [].slice.call(document.querySelectorAll('a.btn--gold, a.btn--whats'));
   ['whatsFloat', 'footerWhats'].forEach(function (id) {
     var el = document.getElementById(id);
     if (el) waTargets.push(el);
